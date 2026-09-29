@@ -1,0 +1,88 @@
+.spotlight {
+  padding: 0 80px 130px;
+}
+
+.spotlight__frame {
+  position: relative;
+  height: 680px;
+  border-radius: 36px;
+  overflow: hidden;
+  background: var(--ink-3);
+}
+.spotlight__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.spotlight__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 17, 22, 0.45);
+}
+.spotlight__label {
+  position: absolute;
+  left: 56px;
+  top: 56px;
+}
+
+.spotlight__card {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 460px;
+  padding: 40px;
+  border-radius: 28px;
+  background: var(--sand);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.spotlight__kicker {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spotlight__name {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.spotlight__details {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+.spotlight__row {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.spotlight__row-label {
+  color: var(--muted);
+}
+.spotlight__row-value {
+  font-weight: 700;
+}
+.spotlight__btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 24px 0 28px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,162 @@
+:root {
+  /* Renkler — vurgu rengini değiştirmek için sadece --accent ve --accent-dark yeterli */
+  --accent: #ff6b2c;
+  --accent-dark: #c2410c;
+  --accent-soft: #ffb38f;
+  --ink: #111418;
+  --ink-2: #1b2027;
+  --ink-3: #2a3038;
+  --sand: #f3efe8;
+  --white: #ffffff;
+  --muted: #5b6068;
+  --body: #3e434a;
+  --line: #cfc8bc;
+  --hero-overlay: 0.45;
+
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.35s var(--ease),
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.35s;
+}
+a svg {
+  transition: transform 0.35s var(--ease);
+}
+a:hover svg {
+  transform: translate(3px, 3px);
+}
+nav a {
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Sayfa kökü */
+.page {
+  width: 100%;
+  min-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+.page > section {
+  flex-shrink: 0;
+}
+
+/* Yuvarlak buton hover efekti */
+.pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+}
+
+/* Fareyle üzerine gelince fotoğraf yavaşça yakınlaşır */
+.zoomwrap img {
+  transition: transform 1.4s var(--ease);
+}
+.zoomwrap:hover img {
+  transform: scale(1.05);
+}
+
+/* Bölüm üst etiketi (turuncu nokta + başlık) */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.eyebrow__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.eyebrow--light {
+  color: rgba(255, 255, 255, 0.7);
+}
+.eyebrow--white {
+  color: var(--white);
+}
+
+/* Büyük bölüm başlığı */
+.section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+/* 12 kolonlu grid */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal,
+  .imgrv {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    clip-path: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

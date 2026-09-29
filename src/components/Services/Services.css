@@ -1,0 +1,117 @@
+.services {
+  padding: 130px 80px;
+  background: var(--ink);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+.services__head {
+  align-items: end;
+}
+.services__heading {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.services__intro {
+  grid-column: 9 / span 4;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.scard {
+  min-height: 440px;
+  padding: 40px;
+  border-radius: 28px;
+  background: var(--ink-2);
+  border: 1px solid var(--ink-3);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition:
+    transform 0.45s var(--ease),
+    border-color 0.45s,
+    background-color 0.45s;
+}
+.scard:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  background-color: #20262e;
+}
+
+.scard__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scard__no {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.scard__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #3a414b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.45s,
+    background-color 0.45s,
+    border-color 0.45s;
+}
+.scard:hover .scard__icon {
+  transform: rotate(-45deg);
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.scard__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.scard__desc {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.scard__list {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--ink-3);
+}
+.scard__item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ink-3);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.scard__bullet {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 1px;
+}
