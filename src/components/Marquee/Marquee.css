@@ -46,3 +46,37 @@
   transform: rotate(45deg);
   flex-shrink: 0;
 }
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .marquee {
+    padding: 28px 0;
+    font-size: 40px;
+  }
+  .marquee__group,
+  .marquee__item {
+    gap: 32px;
+  }
+  .marquee__group {
+    padding-right: 32px;
+  }
+  .marquee__track {
+    animation-duration: 24s;
+  }
+}
+@media (max-width: 600px) {
+  .marquee {
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  .marquee__group,
+  .marquee__item {
+    gap: 24px;
+  }
+  .marquee__group {
+    padding-right: 24px;
+  }
+  .marquee__diamond {
+    width: 10px;
+    height: 10px;
+  }
+}

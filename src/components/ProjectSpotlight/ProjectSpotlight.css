@@ -1,5 +1,5 @@
 .spotlight {
-  padding: 0 80px 130px;
+    padding: 0 var(--pad-x) 130px;
 }
 
 .spotlight__frame {
@@ -85,4 +85,63 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .spotlight {
+    padding: 0 var(--pad-x) 110px;
+  }
+}
+@media (max-width: 900px) {
+  .spotlight {
+    padding: 0 var(--pad-x) 88px;
+  }
+  /* Kart fotoğrafın altına oturur, çerçeve içeriğe göre uzar */
+  .spotlight__frame {
+    height: auto;
+    min-height: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    border-radius: 28px;
+  }
+  .spotlight__label {
+    left: 32px;
+    top: 32px;
+  }
+  .spotlight__card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 460px;
+    margin-left: auto;
+  }
+}
+@media (max-width: 600px) {
+  .spotlight {
+    padding: 0 var(--pad-x) 72px;
+  }
+  .spotlight__frame {
+    min-height: 560px;
+    padding: 12px;
+    border-radius: 24px;
+  }
+  .spotlight__label {
+    left: 24px;
+    top: 24px;
+  }
+  .spotlight__card {
+    max-width: none;
+    padding: 24px;
+    gap: 18px;
+    border-radius: 18px;
+  }
+  .spotlight__name {
+    font-size: 38px;
+  }
+  .spotlight__row {
+    font-size: 15px;
+  }
 }

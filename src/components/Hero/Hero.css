@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   height: 100vh;
+  height: 100svh;
   min-height: 760px;
   flex-shrink: 0;
   overflow: hidden;
@@ -39,12 +40,13 @@
 
 .hero__content {
   position: absolute;
-  left: 80px;
-  right: 80px;
+  left: var(--pad-x);
+  right: var(--pad-x);
   bottom: 120px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 40px;
   color: var(--white);
 }
 
@@ -75,7 +77,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 96px;
+  font-size: clamp(42px, 7vw, 96px);
   line-height: 1;
   letter-spacing: -0.035em;
 }
@@ -127,4 +129,47 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
+}
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .hero__side {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    min-height: 680px;
+  }
+  .hero__content {
+    bottom: 88px;
+  }
+  .hero__lead {
+    font-size: 19px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: 620px;
+  }
+  .hero__content {
+    bottom: 48px;
+  }
+  .hero__main {
+    gap: 20px;
+  }
+  .hero__kicker {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  .hero__lead {
+    font-size: 17px;
+  }
+  .hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero__btn {
+    height: 56px;
+    justify-content: center;
+  }
 }

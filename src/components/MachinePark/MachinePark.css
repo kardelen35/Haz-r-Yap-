@@ -1,5 +1,5 @@
 .machines {
-  padding: 130px 80px;
+    padding: 130px var(--pad-x);
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -96,4 +96,58 @@
   font-size: 16px;
   line-height: 1.55;
   color: var(--muted);
+}
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .machines {
+    padding: 110px var(--pad-x);
+  }
+  .machines__title {
+    font-size: clamp(34px, 4.4vw, 56px);
+  }
+  .machines__intro {
+    grid-column: span 7;
+  }
+  .machines__list {
+    grid-column: 8 / span 5;
+  }
+}
+@media (max-width: 900px) {
+  .machines {
+    padding: 88px var(--pad-x);
+  }
+  .machines__layout {
+    gap: 56px;
+  }
+  .machines__title {
+    font-size: clamp(34px, 6vw, 48px);
+  }
+}
+@media (max-width: 600px) {
+  .machines {
+    padding: 72px var(--pad-x);
+  }
+  .machines__intro {
+    gap: 22px;
+  }
+  .machines__text {
+    font-size: 17px;
+  }
+  .machines__advantages {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .machines__adv {
+    padding: 20px;
+  }
+  .mrow {
+    grid-template-columns: 48px 1fr;
+    padding: 24px 0;
+  }
+  .mrow:hover {
+    padding-left: 0;
+  }
+  .mrow__title {
+    font-size: 24px;
+  }
 }

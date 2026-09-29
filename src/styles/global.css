@@ -12,7 +12,7 @@
   --body: #3e434a;
   --line: #cfc8bc;
   --hero-overlay: 0.45;
-
+ --pad-x: 80px;
   --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Manrope', system-ui, sans-serif;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -74,7 +74,6 @@ nav a:hover::after {
 /* Sayfa kökü */
 .page {
   width: 100%;
-  min-width: 1200px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -130,7 +129,7 @@ nav a:hover::after {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 60px;
+    font-size: clamp(36px, 5vw, 60px);
   line-height: 1.05;
   letter-spacing: -0.03em;
 }
@@ -141,7 +140,33 @@ nav a:hover::after {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: 24px;
 }
-
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  :root {
+    --pad-x: 48px;
+  }
+}
+@media (max-width: 900px) {
+  :root {
+    --pad-x: 32px;
+  }
+  .grid-12 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .grid-12 > * {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --pad-x: 20px;
+  }
+  .eyebrow {
+    font-size: 12px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

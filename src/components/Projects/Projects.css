@@ -1,5 +1,5 @@
 .projects {
-  padding: 120px 80px;
+    padding: 120px var(--pad-x);
   background: var(--white);
   display: flex;
   flex-direction: column;
@@ -96,4 +96,47 @@
 .pcard__scope {
   font-size: 16px;
   color: var(--body);
+}
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .projects {
+    padding: 100px var(--pad-x);
+  }
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 48px;
+  }
+  .pcard__photo {
+    height: 460px;
+  }
+}
+@media (max-width: 900px) {
+  .projects {
+    padding: 80px var(--pad-x);
+    gap: 40px;
+  }
+  .pcard__photo {
+    height: 380px;
+  }
+}
+@media (max-width: 600px) {
+  .projects {
+    padding: 64px var(--pad-x);
+  }
+  .projects__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .projects__grid {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+  .pcard__photo {
+    height: 300px;
+    border-radius: 22px;
+  }
+  .pcard__name {
+    font-size: 26px;
+  }
 }

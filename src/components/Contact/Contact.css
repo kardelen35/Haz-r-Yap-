@@ -1,5 +1,5 @@
 .contact {
-  padding: 130px 80px;
+  padding: 130px var(--pad-x);
   align-items: start;
 }
 
@@ -13,7 +13,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 72px;
+  font-size: clamp(42px, 5.6vw, 72px);
   line-height: 1;
   letter-spacing: -0.035em;
 }
@@ -35,6 +35,55 @@
 .contact__email {
   font-weight: 700;
   color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+/* Google Harita */
+.contact__map {
+  position: relative;
+  margin-top: 16px;
+  height: 360px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #d9d3c8;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 48px -28px rgba(17, 20, 24, 0.35);
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease),
+    border-color 0.45s;
+}
+.contact__map:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 32px 60px -28px rgba(17, 20, 24, 0.45);
+}
+.contact__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: grayscale(1) sepia(0.15) contrast(1.05) brightness(0.98);
+  transition: filter 0.6s var(--ease);
+}
+.contact__map:hover iframe {
+  filter: none;
+}
+.contact__map::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease);
+  pointer-events: none;
+}
+.contact__map:hover::after {
+  transform: scaleX(1);
 }
 
 .contact__cards {
@@ -79,9 +128,11 @@
   align-items: center;
   justify-content: center;
   height: 52px;
+  padding: 0 18px;
   border-radius: 999px;
   font-size: 15px;
   font-weight: 700;
+  white-space: nowrap;
 }
 .contact__btn--phone {
   gap: 10px;
@@ -92,55 +143,64 @@
   background: var(--accent);
   color: var(--ink);
 }
-/* Google Harita */
-.contact__map {
-  position: relative;
-  margin-top: 16px;
-  height: 360px;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #d9d3c8;
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 48px -28px rgba(17, 20, 24, 0.35);
-  transition:
-    transform 0.45s var(--ease),
-    box-shadow 0.45s var(--ease),
-    border-color 0.45s;
-}
-.contact__map:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow: 0 32px 60px -28px rgba(17, 20, 24, 0.45);
-}
 
-/* Varsayılan: sitenin kum/grafit tonlarına uyan soluk harita */
-.contact__map iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  filter: grayscale(1) sepia(0.15) contrast(1.05) brightness(0.98);
-  transition: filter 0.6s var(--ease);
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .contact {
+    padding: 110px var(--pad-x);
+  }
+  .contact__intro {
+    grid-column: span 6;
+  }
+  .contact__cards {
+    grid-column: 7 / span 6;
+  }
+  .contact__actions {
+    flex-direction: column;
+  }
 }
-/* Üzerine gelince gerçek renklerine döner */
-.contact__map:hover iframe {
-  filter: none;
+@media (max-width: 900px) {
+  .contact {
+    padding: 88px var(--pad-x);
+  }
+  .contact__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .contact__map {
+    height: 320px;
+  }
 }
-
-/* Alt kenara ince turuncu vurgu çizgisi */
-.contact__map::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 4px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s var(--ease);
-  pointer-events: none;
-}
-.contact__map:hover::after {
-  transform: scaleX(1);
+@media (max-width: 600px) {
+  .contact {
+    padding: 72px var(--pad-x);
+  }
+  .contact__intro {
+    gap: 22px;
+  }
+  .contact__text {
+    font-size: 17px;
+  }
+  .contact__info {
+    font-size: 16px;
+  }
+  .contact__map {
+    height: 280px;
+    border-radius: 22px;
+  }
+  .contact__map:hover {
+    transform: none;
+  }
+  .contact__cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .contact__card {
+    padding: 24px;
+    border-radius: 22px;
+  }
+  .contact__name {
+    font-size: 26px;
+  }
 }
